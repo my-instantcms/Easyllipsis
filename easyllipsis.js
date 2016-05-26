@@ -1,5 +1,5 @@
 /**
- * Tellipsis 1.0.0 - A jQuery Plugin that produces a gradient ellipsis effect on specified elements
+ * Easyllipsis 1.0.0 - A jQuery Plugin that produces a gradient ellipsis effect on specified elements
  * kmsdev.net
  *
  * Copyright © 2015 kmsdev.net
