@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< 638e48c4017808c88f783691ebe64c9e79402e66
     <list default="true" id="8e54ea21-3587-4d8c-b5a1-897d875e754e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Easyllipsis.iml" afterPath="$PROJECT_DIR$/.idea/Easyllipsis.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/easyllipsis.js" afterPath="$PROJECT_DIR$/easyllipsis.js" />
     </list>
+=======
+<<<<<<< Updated upstream
+    <list default="true" id="8e54ea21-3587-4d8c-b5a1-897d875e754e" name="Default" comment="-main dev">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
+=======
+<<<<<<< Updated upstream
+    <list default="true" id="8e54ea21-3587-4d8c-b5a1-897d875e754e" name="Default" comment="" />
+=======
+    <list default="true" id="8e54ea21-3587-4d8c-b5a1-897d875e754e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+>>>>>>> da7500d58f9be527d3f34d4e604c079782fc9136
     <ignored path="Easyllipsis.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -29,11 +45,20 @@
       <file leaf-file-name="easyllipsis.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/easyllipsis.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< 638e48c4017808c88f783691ebe64c9e79402e66
             <state vertical-scroll-proportion="0.20631067">
               <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
               <folding>
                 <marker date="1464276312811" expanded="true" signature="2116:2145" placeholder="..." />
                 <marker date="1464276312811" expanded="true" signature="3769:3960" placeholder="..." />
+=======
+            <state vertical-scroll-proportion="0.47509113">
+              <caret line="23" column="3" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <marker date="1464276451128" expanded="true" signature="2116:2145" placeholder="..." />
+                <marker date="1464276451128" expanded="true" signature="3769:3960" placeholder="..." />
+>>>>>>> da7500d58f9be527d3f34d4e604c079782fc9136
               </folding>
             </state>
           </provider>
@@ -53,6 +78,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/easyllipsis.js" root0="SKIP_INSPECTION" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/easyllipsis.js" root0="SKIP_INSPECTION" />
@@ -185,6 +218,29 @@
       <option name="number" value="Default" />
       <updated>1464273040572</updated>
     </task>
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+    <task id="LOCAL-00001" summary="-main dev">
+      <created>1464276330670</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1464276330670</updated>
+    </task>
+<<<<<<< Updated upstream
+    <option name="localTasksCounter" value="2" />
+=======
+    <task id="LOCAL-00002" summary="-main dev">
+      <created>1464276478412</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1464276478412</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -192,11 +248,20 @@
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+<<<<<<< 638e48c4017808c88f783691ebe64c9e79402e66
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25809062" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25809062" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+>>>>>>> da7500d58f9be527d3f34d4e604c079782fc9136
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -214,12 +279,17 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="-main dev" />
+    <option name="LAST_COMMIT_MESSAGE" value="-main dev" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/easyllipsis.js">
+<<<<<<< 638e48c4017808c88f783691ebe64c9e79402e66
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="75" column="33" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="33" />
@@ -251,16 +321,60 @@
         <state vertical-scroll-proportion="-18.307692">
           <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
           <folding />
+=======
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="33" selection-start-line="75" selection-start-column="33" selection-end-line="75" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1464276451128" expanded="true" signature="2116:2145" placeholder="..." />
+            <marker date="1464276451128" expanded="true" signature="3769:3960" placeholder="..." />
+          </folding>
+>>>>>>> da7500d58f9be527d3f34d4e604c079782fc9136
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/easyllipsis.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< 638e48c4017808c88f783691ebe64c9e79402e66
         <state vertical-scroll-proportion="0.20631067">
           <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
           <folding>
             <marker date="1464276312811" expanded="true" signature="2116:2145" placeholder="..." />
             <marker date="1464276312811" expanded="true" signature="3769:3960" placeholder="..." />
+          </folding>
+=======
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+>>>>>>> da7500d58f9be527d3f34d4e604c079782fc9136
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyllipsis.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25595984">
+          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.307692">
+          <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/easyllipsis.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47509113">
+          <caret line="23" column="3" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1464276451128" expanded="true" signature="2116:2145" placeholder="..." />
+            <marker date="1464276451128" expanded="true" signature="3769:3960" placeholder="..." />
           </folding>
         </state>
       </provider>
