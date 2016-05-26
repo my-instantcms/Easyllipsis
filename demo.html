@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <link rel="stylesheet" href="easyllipsis.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="easyllipsis.js"></script>
+    <script>
+        $(function(){
+            $('.easyllipsis').easyllipsis();
+        });
+    </script>
+    <style>
+        * { margin: 0; padding: 0; }
+        h1 { font-size: 22px; margin-bottom: 40px; }
+        p, div {margin-bottom: 60px;}
+        #a { width: 161px;
+            max-height: 60px;
+            font: normal 11px Tahoma, sans-serif;
+            color: #666;
+            padding: 0 12px;
+            margin-left: 157px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        #b { max-width: 300px; height: 120px; font-size: 10px; }
+        #c li, #c p { height: 60px; }
+        #d li { min-width: 80px; max-width: 300px; max-height: 45px; }
+    </style>
+</head>
+<body>
+    <h1>Tellipsis 1.0.0 DEMO</h1>
+    <p id="a" class="easyllipsis">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pretium vestibulum tortor id pharetra. Integer lorem urna, porttitor ut ex vitae, laoreet commodo enim. Nam faucibus ex id metus viverra tincidunt. Proin facilisis euismod enim, vel semper augue dapibus ut. Praesent id elit et tortor aliquam tempor. Mauris finibus lectus ante, sed viverra felis dapibus et. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi venenatis, purus eget faucibus aliquam, ligula est ullamcorper libero, vel euismod nisl augue in nisl. Duis neque diam, consectetur eu nibh at, ultricies dignissim nisi. Proin sed lorem diam. Nulla facilisi. Mauris pharetra nulla id magna varius cursus. Ut tempus viverra justo, quis maximus ipsum. Nulla facilisi. Praesent vitae dui nunc. Integer at nulla sit amet velit vestibulum molestie.
+    </p>
+    <p id="b" class="easyllipsis">
+        Lorem ipsum dolor <b>sit amet</b>, consectetur adipiscing elit. Cras pretium vestibulum tortor id pharetra. Integer lorem urna, porttitor ut ex vitae, laoreet commodo enim. Nam faucibus ex id metus viverra tincidunt. Proin facilisis euismod enim, vel semper augue dapibus ut. Praesent id elit et tortor aliquam tempor. Mauris finibus lectus ante, sed viverra felis dapibus et. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi venenatis, purus eget faucibus aliquam, ligula est ullamcorper libero, vel euismod nisl augue in nisl. Duis neque diam, consectetur eu nibh at, ultricies dignissim nisi. Proin sed lorem diam. Nulla facilisi. Mauris pharetra nulla id magna varius cursus. Ut tempus viverra justo, quis maximus ipsum. Nulla facilisi. Praesent vitae dui nunc. Integer at nulla sit amet velit vestibulum molestie.
+    </p>
+    <div id="c">
+        <ul>
+            <li class="easyllipsis">Lorem ipsum dolor <b>sit amet</b>, consectetur adipiscing elit. Cras pretium vestibulum tortor id pharetra. Integer lorem urna, porttitor ut ex vitae, laoreet commodo enim. Nam faucibus ex id metus viverra tincidunt. Proin facilisis euismod enim, vel semper augue dapibus ut. Praesent id elit et tortor aliquam tempor. Mauris finibus lectus ante, sed viverra felis dapibus et. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi venenatis, purus eget faucibus aliquam, ligula est ullamcorper libero, vel euismod nisl augue in nisl. Duis neque diam, consectetur eu nibh at, ultricies dignissim nisi. Proin sed lorem diam. Nulla facilisi. Mauris pharetra nulla id magna varius cursus. Ut tempus viverra justo, quis maximus ipsum. Nulla facilisi. Praesent vitae dui nunc. Integer at nulla sit amet velit vestibulum molestie.</li>
+        </ul>
+        <p class="easyllipsis">Lorem ipsum dolor <b>sit amet</b>, consectetur adipiscing elit. Cras pretium vestibulum tortor id pharetra. Integer lorem urna, porttitor ut ex vitae, laoreet commodo enim. Nam faucibus ex id metus viverra tincidunt. Proin facilisis euismod enim, vel semper augue dapibus ut. Praesent id elit et tortor aliquam tempor. Mauris finibus lectus ante, sed viverra felis dapibus et. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi venenatis, purus eget faucibus aliquam, ligula est ullamcorper libero, vel euismod nisl augue in nisl. Duis neque diam, consectetur eu nibh at, ultricies dignissim nisi. Proin sed lorem diam. Nulla facilisi. Mauris pharetra nulla id magna varius cursus. Ut tempus viverra justo, quis maximus ipsum. Nulla facilisi. Praesent vitae dui nunc. Integer at nulla sit amet velit vestibulum molestie.</p>
+    </div>
+    <ul id="d">
+        <li class="easyllipsis">Lorem ipsum dolor <b>sit amet</b>, consectetur adipiscing elit. Cras pretium vestibulum tortor id pharetra. Integer lorem urna, porttitor ut ex vitae, laoreet commodo enim. Nam faucibus ex id metus viverra tincidunt. Proin facilisis euismod enim, vel semper augue dapibus ut. Praesent id elit et tortor aliquam tempor. Mauris finibus lectus ante, sed viverra felis dapibus et. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi venenatis, purus eget faucibus aliquam, ligula est ullamcorper libero, vel euismod nisl augue in nisl. Duis neque diam, consectetur eu nibh at, ultricies dignissim nisi. Proin sed lorem diam. Nulla facilisi. Mauris pharetra nulla id magna varius cursus. Ut tempus viverra justo, quis maximus ipsum. Nulla facilisi. Praesent vitae dui nunc. Integer at nulla sit amet velit vestibulum molestie.</li>
+    </ul>
+</body>
+</html>
