@@ -33,6 +33,12 @@ $.fn.easyllipsis = function (destroy, opts) {
         ending: {
             type: 'gradient',
             width: 80 // overrides css
+        },
+        observe: {
+            attributes: true,
+            childList: true,
+            characterData: true,
+            subtree: false
         }
     }, opts);
     return this.each(function () {
@@ -43,6 +49,7 @@ $.fn.easyllipsis = function (destroy, opts) {
             $.fn.easyllipsis.Remove($ele);
             return;
         }
+        if( !$ele.is(':visible') ) return;
         if( $.fn.easyllipsis.CheckIfExist($ele) ) return;
         if( settings.allow_css_ellipsis && $.fn.easyllipsis.CheckCssEllipsis($ele) ) return;
 
@@ -51,21 +58,20 @@ $.fn.easyllipsis = function (destroy, opts) {
         var line_height = $.fn.easyllipsis.GetLineHeight($ele);
         var max_size = $.fn.easyllipsis.GetMaxSize($ele);
 
-            var height = $.fn.easyllipsis.CalcHeight(max_size[1], line_height);
+        var height = $.fn.easyllipsis.CalcHeight(max_size[1], line_height);
 
-            if (height !== 0) {
-                var html = $ele.html();
-                $ele.empty().append('<div class="easyllipsis">' + html + '</div>');
-                $this = $('.easyllipsis', $ele);
+        if (height !== 0) {
+            var html = $ele.html();
+            $ele.empty().append('<div class="easyllipsis">' + html + '</div>');
+            $this = $('.easyllipsis', $ele);
 
-                if (!$this.hasClass('easyllipsis')) $this.addClass('easyllipsis');
+            if (!$this.hasClass('easyllipsis')) $this.addClass('easyllipsis');
 
-                $this.append('<easyllipsis style="height: ' + line_height + 'px"></easyllipsis>');
-                $this.height(height).attr('data-with', settings.ending.type);
-                $('easyllipsis', $this).width(settings.ending.width);
-            }
-
-        if( settings.watch && window.MutationObserver ){
+            $this.append('<easyllipsis style="height: ' + line_height + 'px"></easyllipsis>');
+            $this.height(height).attr('data-with', settings.ending.type);
+            $('easyllipsis', $this).width(settings.ending.width);
+        }
+        if( settings.watch && (window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver) ){
             setTimeout(function(){
                 var target = $ele[0];
                 var ob = new MutationObserver(function(mutations){
@@ -77,7 +83,7 @@ $.fn.easyllipsis = function (destroy, opts) {
                         }, 200));
                     });
                 });
-                ob.observe(target, { attributes: true, childList: true, characterData: true, subtree: true });
+                ob.observe(target, settings.observe);
             }, 200);
         }
     });
@@ -88,7 +94,7 @@ $.fn.easyllipsis = function (destroy, opts) {
  * @return bool
  */
 $.fn.easyllipsis.CheckIfExist = function($e){
-    return !!$('.easyllipsis', $e).length;
+    return !!$('easyllipsis', $e).length;
 };
 
 /**
