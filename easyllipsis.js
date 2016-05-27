@@ -74,11 +74,11 @@ $.fn.easyllipsis = function (destroy, opts) {
                         clearTimeout($.data(this, 'easyllipsis_mutation'));
                         $.data(this, 'easyllipsis_mutation', setTimeout(function () {
                             $.fn.easyllipsis.Renew($(mutation.target), opts);
-                        }, 500));
+                        }, 200));
                     });
                 });
                 ob.observe(target, { attributes: true, childList: true, characterData: true, subtree: true });
-            }, 500);
+            }, 200);
         }
     });
 };
