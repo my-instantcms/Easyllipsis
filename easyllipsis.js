@@ -29,6 +29,7 @@ $.fn.easyllipsis = function (destroy, opts) {
     }
     var settings = $.extend({
         watch: true,
+        allow_css_ellipsis: true,
         ending: {
             type: 'gradient',
             width: 80 // overrides css
@@ -43,7 +44,7 @@ $.fn.easyllipsis = function (destroy, opts) {
             return;
         }
         if( $.fn.easyllipsis.CheckIfExist($ele) ) return;
-        if( $.fn.easyllipsis.CheckCssEllipsis($ele) ) return;
+        if( settings.allow_css_ellipsis && $.fn.easyllipsis.CheckCssEllipsis($ele) ) return;
 
         if( $ele.attr('data-avoidmutation') ) $ele.removeAttr('data-avoidmutation');
 
