@@ -1,5 +1,5 @@
 /**
- * Easyllipsis 1.0.0 - A jQuery Plugin that produces a gradient ellipsis effect on specified elements
+ * Easyllipsis 1.0.1 - A jQuery Plugin that produces a gradient ellipsis effect on specified elements
  * kmsdev.net
  *
  * Copyright © 2015 kmsdev.net
@@ -32,8 +32,7 @@ $.fn.easyllipsis = function (destroy, opts) {
         watch: true,
         allow_css_ellipsis: true,
         ending: {
-            type: 'gradient',
-            width: 80 // overrides css
+            type: 'gradient'
         },
         observe: {
             attributes: true,
@@ -70,7 +69,6 @@ $.fn.easyllipsis = function (destroy, opts) {
 
             $this.append('<easyllipsis style="height: ' + line_height + 'px"></easyllipsis>');
             $this.height(height).attr('data-with', settings.ending.type);
-            $('easyllipsis', $this).width(settings.ending.width);
         }
         if( settings.watch && (window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver) ){
             setTimeout(function(){
@@ -109,9 +107,11 @@ $.fn.easyllipsis.CheckIfExist = function($e){
  */
 $.fn.easyllipsis.AllowElement = function($e, max_height, height, line_height){
     var real_height, current_lines, total_lines;
-    $e.height('auto');
-    real_height = $e.height();
-    $e.height(max_height);
+    var $clone = $e.clone();
+    $clone.insertAfter($e);
+    $clone.height('auto').css('maxHeight', 'none');
+    real_height = $clone.height();
+    $clone.remove();
     current_lines = height / line_height;
     total_lines = real_height / line_height;
     return !(current_lines == total_lines);
@@ -134,12 +134,16 @@ $.fn.easyllipsis.CheckCssEllipsis = function($e){
 $.fn.easyllipsis.GetLineHeight = function ($e) {
     var line_height = $e.css('lineHeight').replace(/px/, '');
     if( isNaN(line_height) ){
+        var fontsize = $e.css('fontSize');
+        if( /rem/.test(fontsize) ){
+            fontsize = parseFloat(fontsize.replace(/rem/, '')) * parseInt($('html').css('fontSize').replace(/px/, '')) + 'px';
+        }
         if( /normal/.test($e.css('lineHeight')) ){
-            line_height = $e.css('fontSize').replace(/px/, '');
+            line_height = fontsize.replace(/px/, '');
             $e.css('lineHeight', $e.css('fontSize'));
         }
         else if( /%/.test($e.css('lineHeight')) ){
-            line_height = $e.css('fontSize').replace(/px/, '') * $e.css('lineHeight').replace(/%/, '');
+            line_height = fontsize.replace(/px/, '') * $e.css('lineHeight').replace(/%/, '');
         }
     }
     return parseInt(line_height);
