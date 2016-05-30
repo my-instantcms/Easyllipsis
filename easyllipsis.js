@@ -18,6 +18,7 @@
  */
 
 /**
+ * Initializer
  * @param {boolean} [destroy]
  * @param {object} [opts]
  * @returns {*}
@@ -33,6 +34,12 @@ $.fn.easyllipsis = function (destroy, opts) {
         ending: {
             type: 'gradient',
             width: 80 // overrides css
+        },
+        observe: {
+            attributes: true,
+            childList: true,
+            characterData: true,
+            subtree: false
         }
     }, opts);
     return this.each(function () {
@@ -43,6 +50,7 @@ $.fn.easyllipsis = function (destroy, opts) {
             $.fn.easyllipsis.Remove($ele);
             return;
         }
+        if( !$ele.is(':visible') ) return;
         if( $.fn.easyllipsis.CheckIfExist($ele) ) return;
         if( settings.allow_css_ellipsis && $.fn.easyllipsis.CheckCssEllipsis($ele) ) return;
 
@@ -51,21 +59,20 @@ $.fn.easyllipsis = function (destroy, opts) {
         var line_height = $.fn.easyllipsis.GetLineHeight($ele);
         var max_size = $.fn.easyllipsis.GetMaxSize($ele);
 
-            var height = $.fn.easyllipsis.CalcHeight(max_size[1], line_height);
+        var height = $.fn.easyllipsis.CalcHeight(max_size[1], line_height);
 
-            if (height !== 0) {
-                var html = $ele.html();
-                $ele.empty().append('<div class="easyllipsis">' + html + '</div>');
-                $this = $('.easyllipsis', $ele);
+        if( height !== 0 && $.fn.easyllipsis.AllowElement($ele, max_size[2], height, line_height) ) {
+            var html = $ele.html();
+            $ele.empty().append('<div class="easyllipsis">' + html + '</div>');
+            $this = $('.easyllipsis', $ele);
 
-                if (!$this.hasClass('easyllipsis')) $this.addClass('easyllipsis');
+            if (!$this.hasClass('easyllipsis')) $this.addClass('easyllipsis');
 
-                $this.append('<easyllipsis style="height: ' + line_height + 'px"></easyllipsis>');
-                $this.height(height).attr('data-with', settings.ending.type);
-                $('easyllipsis', $this).width(settings.ending.width);
-            }
-
-        if( settings.watch && window.MutationObserver ){
+            $this.append('<easyllipsis style="height: ' + line_height + 'px"></easyllipsis>');
+            $this.height(height).attr('data-with', settings.ending.type);
+            $('easyllipsis', $this).width(settings.ending.width);
+        }
+        if( settings.watch && (window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver) ){
             setTimeout(function(){
                 var target = $ele[0];
                 var ob = new MutationObserver(function(mutations){
@@ -77,21 +84,41 @@ $.fn.easyllipsis = function (destroy, opts) {
                         }, 200));
                     });
                 });
-                ob.observe(target, { attributes: true, childList: true, characterData: true, subtree: true });
+                ob.observe(target, settings.observe);
             }, 200);
         }
     });
 };
 
 /**
+ * Check if an element has easyllipsis already
  * @param {jQuery} $e
  * @return bool
  */
 $.fn.easyllipsis.CheckIfExist = function($e){
-    return !!$('.easyllipsis', $e).length;
+    return !!$('easyllipsis', $e).length;
 };
 
 /**
+ * Allow an element to have ellipsis
+ * @param {jQuery} $e
+ * @param {number} max_height
+ * @param {number} height
+ * @param {number} line_height
+ * @return boolean
+ */
+$.fn.easyllipsis.AllowElement = function($e, max_height, height, line_height){
+    var real_height, current_lines, total_lines;
+    $e.height('auto');
+    real_height = $e.height();
+    $e.height(max_height);
+    current_lines = height / line_height;
+    total_lines = real_height / line_height;
+    return !(current_lines == total_lines);
+};
+
+/**
+ * Check if an element has simple css ellipsis
  * @param {jQuery} $e
  * @return bool
  */
@@ -100,34 +127,45 @@ $.fn.easyllipsis.CheckCssEllipsis = function($e){
 };
 
 /**
+ * Calculate the line height of an element
  * @param {jQuery} $e
  * @return number
  */
 $.fn.easyllipsis.GetLineHeight = function ($e) {
-    var lnh = $e.css('line-height') == "normal" ? parseInt($e.css('font-size').replace(/[A-z]+/, '')) + 2 + 'px' : $e.css('line-height');
-    var h, $span = $('<span style="display: block; opacity: 0; position: absolute; font-family: '+ $e.css('font-family') +'; font-size: ' + parseInt($e.css('font-size').replace(/[A-z]/, '')) + 'px' + '; line-height: '+ lnh +';">' + $e.text().trim().substr(0, 10) + '</span>');
-    $span.appendTo($e.parent());
-    h = $span.height();
-    $span.remove();
-    return h;
+    var line_height = $e.css('lineHeight').replace(/px/, '');
+    if( isNaN(line_height) ){
+        if( /normal/.test($e.css('lineHeight')) ){
+            line_height = $e.css('fontSize').replace(/px/, '');
+            $e.css('lineHeight', $e.css('fontSize'));
+        }
+        else if( /%/.test($e.css('lineHeight')) ){
+            line_height = $e.css('fontSize').replace(/px/, '') * $e.css('lineHeight').replace(/%/, '');
+        }
+    }
+    return parseInt(line_height);
 };
 
 /**
+ * Calculate the measures of an element (widht, height and max height)
  * @param {jQuery} $e
  * @return array
  */
 $.fn.easyllipsis.GetMaxSize = function ($e) {
-    var w, h;
+    var w, h, mh;
     w = !!$e.css('max-width').length && $e.css('max-width') != "none" ? $e.css('max-width') : $e.width() !== 0 ? $e.width().toString() : '0';
-    h = !!$e.css('max-height').length && $e.css('max-height') != "none" ? $e.css('max-height') : $e.height() !== 0 ? $e.height().toString() : '0';
+    h = $e.height() !== 0 ? $e.height().toString() : '0';
+    mh = !!$e.css('max-height').length && $e.css('max-height') != "none" ? $e.css('max-height') : h;
     w = parseInt(w.replace(/px/, ''));
     h = parseInt(h.replace(/px/, ''));
+    mh = parseInt(mh.replace(/px/, ''));
     if (isNaN(w)) w = 0;
     if (isNaN(h)) h = 0;
-    return [w, h];
+    if (isNaN(mh)) mh = 0;
+    return [w, h, mh];
 };
 
 /**
+ * Calculate the real height based on the max height and the line height
  * @param {number} max
  * @param {number} lineheight
  * @return number
@@ -144,6 +182,7 @@ $.fn.easyllipsis.CalcHeight = function (max, lineheight) {
 };
 
 /**
+ * Remove and set again easyllipsis
  * @param {jQuery} $e
  * @param {function} options
  * @return void
@@ -157,6 +196,7 @@ $.fn.easyllipsis.Renew = function($e, options){
 };
 
 /**
+ * Remove easyllipsis
  * @param {jQuery} $e
  * @return void
  */
