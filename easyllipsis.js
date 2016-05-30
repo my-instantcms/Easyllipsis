@@ -75,7 +75,10 @@ $.fn.easyllipsis = function (destroy, opts) {
                 var target = $ele[0];
                 var ob = new MutationObserver(function(mutations){
                     mutations.forEach(function(mutation){
-                        if( $(mutation.target).attr('data-avoidmutation') ) return;
+                        if( $(mutation.target).attr('data-avoidmutation') ){
+                            ob.disconnect();
+                            return;
+                        }
                         clearTimeout($.data(this, 'easyllipsis_mutation'));
                         $.data(this, 'easyllipsis_mutation', setTimeout(function () {
                             $.fn.easyllipsis.Renew($(mutation.target), opts);
