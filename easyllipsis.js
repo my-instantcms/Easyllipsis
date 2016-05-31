@@ -1,5 +1,5 @@
 /**
- * Easyllipsis 1.0.1 - A jQuery Plugin that produces a gradient ellipsis effect on specified elements
+ * Easyllipsis 1.0.2 - A jQuery Plugin that produces a gradient ellipsis effect on specified elements
  * kmsdev.net
  *
  * Copyright © 2015 kmsdev.net
@@ -38,7 +38,7 @@ $.fn.easyllipsis = function (destroy, opts) {
             attributes: true,
             childList: true,
             characterData: true,
-            subtree: false
+            subtree: true
         }
     }, opts);
     return this.each(function () {
@@ -75,13 +75,12 @@ $.fn.easyllipsis = function (destroy, opts) {
                 var target = $ele[0];
                 var ob = new MutationObserver(function(mutations){
                     mutations.forEach(function(mutation){
-                        if( $(mutation.target).attr('data-avoidmutation') ){
-                            ob.disconnect();
-                            return;
-                        }
+                        var $target = !!$(mutation.target).parents('.easyllipsis').length ? $(mutation.target).parents('.easyllipsis').last() : $(mutation.target).hasClass('easyllipsis') ? $(mutation.target) : undefined;
+                        if( !$target ) return;
+                        ob.disconnect();
                         clearTimeout($.data(this, 'easyllipsis_mutation'));
                         $.data(this, 'easyllipsis_mutation', setTimeout(function () {
-                            $.fn.easyllipsis.Renew($(mutation.target), opts);
+                            $.fn.easyllipsis.Renew($target, opts);
                         }, 200));
                     });
                 });
@@ -117,7 +116,7 @@ $.fn.easyllipsis.AllowElement = function($e, max_height, height, line_height){
     $clone.remove();
     current_lines = height / line_height;
     total_lines = real_height / line_height;
-    return !(current_lines == total_lines);
+    return !(current_lines == total_lines || height > real_height);
 };
 
 /**
@@ -138,9 +137,6 @@ $.fn.easyllipsis.GetLineHeight = function ($e) {
     var line_height = $e.css('lineHeight').replace(/px/, '');
     if( isNaN(line_height) ){
         var fontsize = $e.css('fontSize');
-        if( /rem/.test(fontsize) ){
-            fontsize = parseFloat(fontsize.replace(/rem/, '')) * parseInt($('html').css('fontSize').replace(/px/, '')) + 'px';
-        }
         if( /normal/.test($e.css('lineHeight')) ){
             line_height = fontsize.replace(/px/, '');
             $e.css('lineHeight', $e.css('fontSize'));
@@ -195,7 +191,6 @@ $.fn.easyllipsis.CalcHeight = function (max, lineheight) {
  * @return void
  */
 $.fn.easyllipsis.Renew = function($e, options){
-    $e.attr('data-avoidmutation', true);
     $('easyllipsis', $e).remove();
     var html = $('.easyllipsis', $e).html();
     $e.html(html);
@@ -208,7 +203,6 @@ $.fn.easyllipsis.Renew = function($e, options){
  * @return void
  */
 $.fn.easyllipsis.Remove = function($e){
-    $e.attr('data-avoidmutation', true);
     $('easyllipsis', $e).remove();
     var html = $('.easyllipsis', $e).html();
     $e.html(html);

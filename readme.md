@@ -1,14 +1,10 @@
-# Easyllipsis 1.0.1
+# Easyllipsis 1.0.2
 A jQuery Plugin that produces a gradient ellipsis effect on specified elements
 
 ##### What is required:
 
 This plugin only needs to know the height of the target element. This height can be set by `height` or `max-height`. Using both values works too.
 It is recommended (**not required**) the use of `line-height`. If this value does not exist, the plugin will apply it with the font size value.
-
-##### What won't work:
-
-At the moment this plugin does not recognize `em` measures, but root ones (`rem`) are valid.
 
 ##### Basic usage:
 
@@ -23,7 +19,7 @@ The CSS file has the gradient style and its width by default. Better, instead of
 
 ```
 $('p.ellipsis').easyllipsis({
-    watch: true, // the plugin will look for dom changes to re-apply the ellipsis
+    watch: true, // the plugin will look for dom changes to re-apply the ellipsis automatically
     allow_css_ellipsis: true, // if an element has its own ellipsis made with css, the plugin will avoid this element
     ending: {
         type: 'gradient' // type of ending, currently there is only gradient. let's see in the future
@@ -32,7 +28,7 @@ $('p.ellipsis').easyllipsis({
         attributes: true,
         childList: true,
         characterData: true,
-        subtree: false
+        subtree: true
     }
 });
 ```
