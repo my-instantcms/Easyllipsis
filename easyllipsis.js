@@ -76,8 +76,10 @@ $.fn.easyllipsis = function (destroy, opts) {
                 var ob = new MutationObserver(function(mutations){
                     mutations.forEach(function(mutation){
                         var $target = !!$(mutation.target).parents('.easyllipsis').length ? $(mutation.target).parents('.easyllipsis').last() : $(mutation.target).hasClass('easyllipsis') ? $(mutation.target) : undefined;
-                        if( !$target ) return;
-                        ob.disconnect();
+                        if( !$target || $target.attr('data-with') ){
+                            ob.disconnect();
+                            return;
+                        }
                         clearTimeout($.data(this, 'easyllipsis_mutation'));
                         $.data(this, 'easyllipsis_mutation', setTimeout(function () {
                             $.fn.easyllipsis.Renew($target, opts);
